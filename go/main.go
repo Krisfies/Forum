@@ -23,6 +23,7 @@ func main() {
 	}
 
 	var err error
+
 	db, err = sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		log.Fatal(err)
@@ -32,26 +33,15 @@ func main() {
 	if pingErr != nil {
 		log.Fatal(pingErr)
 	}
+
 	fmt.Println("Connected!")
-
-	// Hard-code ID 2 here to test the query.
-	// alb, err := AlbumByID(2)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// fmt.Printf("Album found: %v\n", alb)
-
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	css := http.FileServer(http.Dir("../css/"))
 	http.Handle("/css/", http.StripPrefix("/css/", css))
-
 	images := http.FileServer(http.Dir("../images/"))
 	http.Handle("/images/", http.StripPrefix("/images/", images))
 
-	SMessage := template.Must(template.ParseFiles("../html/TemplateMessage.html"))
+	TemplateMessage := template.Must(template.ParseFiles("../html/TemplateMessage.html"))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
@@ -59,19 +49,17 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(tab_messages)
 
 		message := Message{
 			Content:            r.FormValue("Content"),
-			Author:             "Krisfies",
+			Author:             "Krisfies?",
 			Date:               DateMessage(),
 			Historique_message: tab_messages,
 		}
 
-		if message.Content != "" {
+		if message.Content != " " {
 			messID, err := AddMessage(message)
 			fmt.Printf("ID of added message: %v\n", messID)
-
 			if err != nil {
 				fmt.Println(err)
 				return
@@ -79,7 +67,7 @@ func main() {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 
-		SMessage.Execute(w, message)
+		TemplateMessage.Execute(w, message)
 	})
 
 	http.ListenAndServe(":8010", nil)
