@@ -7,7 +7,7 @@ func MessagesPrint() ([]Message, error) {
 	// An albums slice to hold data from returned rows.
 	var messages []Message
 
-	rows, err := db.Query("SELECT * FROM message")
+	rows, err := db.Query("SELECT * FROM `message` ORDER BY `message`.`id` ASC ")
 	if err != nil {
 		return nil, fmt.Errorf("MessagesPrint error: %v", err)
 	}
