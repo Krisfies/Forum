@@ -51,7 +51,7 @@ func main() {
 	images := http.FileServer(http.Dir("../images/"))
 	http.Handle("/images/", http.StripPrefix("/images/", images))
 
-	SMessage := template.Must(template.ParseFiles("../html/test_message.html"))
+	SMessage := template.Must(template.ParseFiles("../html/TemplateMessage.html"))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
