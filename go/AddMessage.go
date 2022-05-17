@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// addAlbum adds the specified album to the database,
-// returning the album ID of the new entry
+// AddMessage adds the specified message to the database,
+// returning the message ID of the new entry
 func AddMessage(mess Message) (int64, error) {
 	result, err := db.Exec("INSERT INTO message (Content, Author, Date) VALUES (?, ?, ?)", mess.Content, mess.Author, mess.Date)
 	fmt.Println(result)

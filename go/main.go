@@ -13,7 +13,6 @@ import (
 var db *sql.DB
 
 func main() {
-	// Capture connection properties.
 	cfg := mysql.Config{
 		User:                 "root",
 		Passwd:               "",
@@ -22,7 +21,7 @@ func main() {
 		DBName:               "data-access",
 		AllowNativePasswords: true,
 	}
-	// Get a database handle.
+
 	var err error
 	db, err = sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
@@ -65,7 +64,7 @@ func main() {
 		message := Message{
 			Content:            r.FormValue("Content"),
 			Author:             "Krisfies",
-			Date:               "22-05-12",
+			Date:               DateMessage(),
 			Historique_message: tab_messages,
 		}
 
@@ -77,6 +76,7 @@ func main() {
 				fmt.Println(err)
 				return
 			}
+			http.Redirect(w, r, "/", http.StatusSeeOther)
 		}
 
 		SMessage.Execute(w, message)
