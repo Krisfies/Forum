@@ -107,7 +107,7 @@ func main() {
 	})
 
 	TemplateMessage := template.Must(template.ParseFiles("../html/TemplateMessage.html"))
-	http.HandleFunc("/randomtopic", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/topic", func(w http.ResponseWriter, r *http.Request) {
 
 		tab_messages, err := MessagesPrint()
 		if err != nil {
@@ -121,14 +121,14 @@ func main() {
 			Historique_message: tab_messages,
 		}
 
-		if message.Content != " " {
+		if message.Content != "" {
 			messID, err := AddMessage(message)
 			fmt.Printf("ID of added message: %v\n", messID)
 			if err != nil {
 				fmt.Println(err)
 				return
 			}
-			http.Redirect(w, r, "/randomtopic", http.StatusSeeOther)
+			http.Redirect(w, r, "/topic", http.StatusSeeOther)
 		}
 
 		TemplateMessage.Execute(w, message)
