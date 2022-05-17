@@ -1,4 +1,4 @@
-module example.com/m/v2
+module data-access
 
 go 1.17
 
