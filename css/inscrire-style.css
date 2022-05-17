@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+  
+  body 
+  {
+    background-image: url("../img/fond_ecran.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  .all {
+    font-family: 'Montserrat', Arial, sans-serif;
+    flex: 1;
+    padding: 50px;
+    margin: -8px;
+    margin-left: -30px;
+  }
+
+  .card
+  {
+      width: 400px;
+      margin:0 auto;
+      border: 3px solid rgb(255, 255, 255);
+      padding: 20px;
+      background-color: rgb(0, 0, 0);
+      margin-top: 150px;
+  }
+  
+  .group {
+    margin-bottom: 15px;
+  }
+
+  .dark 
+  {
+    margin-left: 20px;
+  }
+
+  .contact
+  {
+      text-align: center;
+      color: white;
+  }
+
+  .ligne
+  {
+      border-top: 2px solid rgb(255, 255, 255);
+      width : 20%;
+      margin-left: 40%;
+  }
+
+  .icone
+  {
+    margin-left: 39%;
+    margin-top: 10px;
+    width : 100px;
+  }
+  
+  .group.message {
+    margin-top: 40px;
+  }
+  
+  .group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  
+  .options {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color: #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  
+  .options::placeholder {
+    color: #666;
+  }
+  
+  .options:focus {
+    border-bottom-color: #ddd;
+  }
+  
+  .button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .button:hover {
+    background-color:rgb(29, 29, 29);
+  }
+
+  .sinscrire 
+  {
+    text-decoration: none;
+    color: white;
+  }
+
+  .sinscrire:hover
+  {
+    color: rgb(199, 199, 199);
+  } 
