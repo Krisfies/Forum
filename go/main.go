@@ -36,21 +36,22 @@ func main() {
 
 	fmt.Println("Connected!")
 	User_Profil := Data_User{
-		Nom:   "Random",
-		mdp:   "*******",
-		admin: "false",
+		Name:     "Random",
+		Password: "*******",
+		Admin:    "false",
 	}
+
 	index := template.Must(template.ParseFiles("../html/inscrire.html"))
 	http.HandleFunc("/inscrire", func(w http.ResponseWriter, r *http.Request) {
 		UserInput := r.FormValue("UserInput")
 		UserInput2 := r.FormValue("UserInput2")
 		UserInput3 := r.FormValue("UserInput3")
 		NewUser, err := AddData_User(Data_User{
-			ID:    000000,
-			Nom:   UserInput,
-			email: UserInput2,
-			mdp:   UserInput3,
-			admin: "false",
+			ID:       000000,
+			Name:     UserInput,
+			Email:    UserInput2,
+			Password: UserInput3,
+			Admin:    "false",
 		})
 		if err != nil {
 			log.Fatal(err)
@@ -62,20 +63,20 @@ func main() {
 	index2 := template.Must(template.ParseFiles("../html/connecter.html"))
 	http.HandleFunc("/connect", func(w http.ResponseWriter, r *http.Request) {
 		User := Data_User{
-			Nom: r.FormValue("UserInput"),
-			mdp: r.FormValue("UserInput2"),
+			Name:     r.FormValue("UserInput"),
+			Password: r.FormValue("UserInput2"),
 		}
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println(User.Nom)
-		fmt.Println(User.mdp)
+		fmt.Println(User.Name)
+		fmt.Println(User.Password)
 		Verif := Data_Verif{
-			Connect_Verif: VerifUser(User.Nom, User.mdp),
+			Connect_Verif: VerifUser(User.Name, User.Password),
 		}
-		Verif.Connect_Verif = VerifUser(User.Nom, User.mdp)
+		Verif.Connect_Verif = VerifUser(User.Name, User.Password)
 		if Verif.Connect_Verif {
-			User_Profil.Nom = User.Nom
+			User_Profil.Name = User.Name
 			http.Redirect(w, r, "/principal", http.StatusSeeOther)
 		}
 		index2.Execute(w, User)
@@ -84,7 +85,7 @@ func main() {
 	index3 := template.Must(template.ParseFiles("../html/principal.html"))
 	http.HandleFunc("/principal", func(w http.ResponseWriter, r *http.Request) {
 		Topics := Data_Topic{
-			Nom: "Topic1",
+			Name: "Topic1",
 		}
 		fmt.Println(Topics)
 		index3.Execute(w, Topics)
@@ -93,7 +94,17 @@ func main() {
 	D1 := template.Must(template.ParseFiles("../html/Souls1.html"))
 	http.HandleFunc("/D1", func(w http.ResponseWriter, r *http.Request) {
 
-		D1.Execute(w, nil)
+		tab_topic, err := TopicPrint()
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		Topic := Data_Topic{
+			Topic_History: tab_topic,
+			Name:          "HHEYYYYYYYYYYYYYYBOYIMFROMTEXAS",
+		}
+
+		D1.Execute(w, Topic)
 
 	})
 
@@ -119,11 +130,11 @@ func main() {
 			fmt.Println(err)
 		}
 
-		message := Message{
-			Content:            r.FormValue("Content"),
-			Author:             User_Profil.Nom,
-			Date:               DateMessage(),
-			Historique_message: tab_messages,
+		message := Data_Message{
+			Content:         r.FormValue("Content"),
+			Author:          User_Profil.Name,
+			Date:            DateMessage(),
+			Message_History: tab_messages,
 		}
 
 		if message.Content != "" {

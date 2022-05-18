@@ -63,9 +63,11 @@
           <p class="title1"><img src="../images/darksouls1.png" class="darksouls"></p>
           <div class="first">
             <ul class="list">
+              {{range .Topic_History}}
               <a href="/topic">
-                <li class="lien">TOPIC</li>
+                <li class="lien">{{.Name}}</li>
               </a>
+              {{end}}
             </ul>
           </div>
         </div>

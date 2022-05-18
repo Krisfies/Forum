@@ -315,9 +315,6 @@ a
   color:rgb(158, 158, 158);
 }
 
-.FOOTER-logo
-{
-}
 
 .FOOTER-flex 
 {
@@ -465,3 +462,7 @@ a
   {
     color:rgb(158, 158, 158);
   }
+.NAVBAR-logo
+{
+  width:50%;
+}

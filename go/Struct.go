@@ -1,11 +1,11 @@
 package main
 
-type Message struct {
-	ID                 int64
-	Content            string
-	Author             string
-	Date               string
-	Historique_message []Message
+type Data_Message struct {
+	ID              int64
+	Content         string
+	Author          string
+	Date            string
+	Message_History []Data_Message
 }
 
 type Topic struct {
@@ -15,11 +15,11 @@ type Topic struct {
 }
 
 type Data_User struct {
-	ID    int64
-	Nom   string
-	email string
-	mdp   string
-	admin string
+	ID       int64
+	Name     string
+	Email    string
+	Password string
+	Admin    string
 }
 
 type Data_Verif struct {
@@ -27,5 +27,7 @@ type Data_Verif struct {
 }
 
 type Data_Topic struct {
-	Nom string
+	ID            int
+	Name          string
+	Topic_History []Data_Topic
 }
