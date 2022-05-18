@@ -46,41 +46,51 @@
         </a>
       </ul>
     </div>
-  </div>
-  <br>
-  <br>
-  <div class="allcontent">
-    <div class="all">
-      <a href="#vers_input">
-        <div class="repondre">
-          <h4 class="repmot">Répondre<img src="../images/plus.png" class="plus"></h4>
+    <br>
+    <br>
+    <div class="allcontent">
+      <div class="all">
+        <div class="topic">
+          <div class="ligne"></div>
+          <p class="sujet">{{.Content}}</p>
         </div>
-      </a>
-      {{range .Historique_message}}
-      <div class="topic">
-        <div class="haut">
-          <div class="profil"><img src="../images/pdp1.jpg" class="pdp">
-            <h3 class="nom">{{.Author}}</h3>
-          </div>
-          <div class="date">{{.Date}}</div>
-        </div>
-        <div class="ligne"></div>
-        <p class="sujet">{{.Content}}</p>
-      </div>
-      {{end}}
-      <br id="vers_input">
-      <br>
-      <br>
-      <br>
-      <br>
-      <form method="POST">
-        <label class="text_input">Entrez votre message</label><br>
-        <textarea class="input" type="text" name="Content" cols="100" rows="10"></textarea>
         <br>
-        <input class="submit" type="submit">
-      </form>
-      <p class="sujet"></p>
+        <br>
+        <a href="#vers_input">
+          <div class="repondre">
+            <h4 class="repmot">Répondre<img src="../images/plus.png" class="plus"></h4>
+          </div>
+        </a>
+        {{range .Historique_message}}
+        <div class="topic">
+          <div class="haut">
+            <div class="profil"><img src="../images/pdp1.jpg" class="pdp">
+              <h3 class="nom">{{.Author}}</h3>
+            </div>
+            <div class="date">{{.Date}}</div>
+          </div>
+          <div class="ligne"></div>
+          <p class="sujet">{{.Content}}</p>
+        </div>
+        <div class="date">{{.Date}}</div>
+      </div>
+      <div class="ligne"></div>
+      <p class="sujet">{{.Content}}</p>
     </div>
+    {{end}}
+    <br id="vers_input">
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="POST">
+      <label class="text_input">Entrez votre message</label><br>
+      <textarea class="input" type="text" name="Content" cols="100" rows="10"></textarea>
+      <br>
+      <input class="submit" type="submit">
+    </form>
+    <p class="sujet"></p>
+  </div>
   </div>
   <footer>
     <div class="FOOTER-all">

@@ -26,12 +26,12 @@ func main() {
 
 	db, err = sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 
 	pingErr := db.Ping()
 	if pingErr != nil {
-		log.Fatal(pingErr)
+		fmt.Println(pingErr)
 	}
 
 	fmt.Println("Connected!")
@@ -66,7 +66,7 @@ func main() {
 			mdp: r.FormValue("UserInput2"),
 		}
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 		fmt.Println(User.Nom)
 		fmt.Println(User.mdp)
@@ -116,7 +116,7 @@ func main() {
 
 		tab_messages, err := MessagesPrint()
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
 		}
 
 		message := Message{
