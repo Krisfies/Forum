@@ -35,7 +35,11 @@ func main() {
 	}
 
 	fmt.Println("Connected!")
-
+	User_Profil := Data_User{
+		Nom:   "Random",
+		mdp:   "*******",
+		admin: "false",
+	}
 	index := template.Must(template.ParseFiles("../html/inscrire.html"))
 	http.HandleFunc("/inscrire", func(w http.ResponseWriter, r *http.Request) {
 		UserInput := r.FormValue("UserInput")
@@ -71,6 +75,7 @@ func main() {
 		}
 		Verif.Connect_Verif = VerifUser(User.Nom, User.mdp)
 		if Verif.Connect_Verif {
+			User_Profil.Nom = User.Nom
 			http.Redirect(w, r, "/principal", http.StatusSeeOther)
 		}
 		index2.Execute(w, User)
@@ -116,7 +121,7 @@ func main() {
 
 		message := Message{
 			Content:            r.FormValue("Content"),
-			Author:             "Krisfies?",
+			Author:             User_Profil.Nom,
 			Date:               DateMessage(),
 			Historique_message: tab_messages,
 		}
