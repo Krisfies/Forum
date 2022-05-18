@@ -13,7 +13,6 @@ import (
 var db *sql.DB
 
 func main() {
-	fmt.Println(Citation(1))
 	cfg := mysql.Config{
 		User:                 "root",
 		Passwd:               "",
