@@ -1,0 +1,128 @@
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/TopicCreationStyle.css" />
+    <title>Dark Soluce</title>
+  </head>
+  <body>
+    <div class="NAVBAR-header">
+      <img src="../images/DS.png" class="NAVBAR-logo">
+      <nav>
+        <ul class="NAVBAR-ul">
+          <li><a href="#" class="NAVBAR-option">Services</a></li>
+          <li><a href="#" class="NAVBAR-option">Se connecter</a></li>
+          <li><a href="#" class="NAVBAR-option">S'inscrire</a></li>
+          <a href="#" class="NAVBAR-option"><img src="../images/engrenage.png" class="NAVBAR-engrenage"></a>
+        </ul>
+      </nav>
+      <div id="NAVBAR-hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="NAVBAR-bar1"><img src="../images/sword.png"></div>
+        <div class="NAVBAR-bar2"><img src="../images/sword.png"></div>
+        <div class="NAVBAR-bar3"><img src="../images/sword.png"></div>
+        <ul class="NAVBAR-mobile-menu">
+          <a href="" class="NAVBAR-option">
+            <li class="resp-option">Services</li>
+          </a>
+          <a href="" class="NAVBAR-option">
+            <li class="resp-option">Se connecter</li>
+          </a>
+          <a href="" class="NAVBAR-option">
+            <li class="resp-option">S'inscrire</li>
+          </a>
+          <a href="#" class="NAVBAR-option">
+            <li class="resp-option">
+              <div class="resp-engrenage"><img src="../images/engrenage.png" class="NAVBAR-engrenage"></div>
+            </li>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="fond">
+      <div class="allcontent">
+        <div class="allcategories">
+          <div class="category">
+            <form>
+              <h1>Créer un topic</h1>
+              <div class="separation"></div>
+              <div class="corps-formulaire">
+                <div class="gauche">
+                  <div class="groupe">
+                    <label>Titre</label>
+                    <br>
+                    <input type="text" autocomplete="off" class="titretopic" name="Name">
+                  </div>
+                  <br>
+                  <!-- <label>Choisissez une catégorie</label> -->
+                  <br>
+                  <!-- <div class="catégories"><p class="catégorie">#Aide</p><p class="catégorie">#Lore</p></div> -->
+                  <div class="droite">
+                    <div class="groupe">
+                      <br>
+                      <textarea placeholder="Saisissez votre message ici..." class="sujettopic" name="Content"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="pied-formulaire">
+                  <button class="Publier">Publier le Topic</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="FOOTER-all">
+        <div class="FOOTER-clean">
+          <div class="FOOTER-container">
+            <div class="FOOTER-flex">
+              <div class="FOOTER-option">
+                <div class="FOOTER-option1">
+                  <img src="../images/logo_ynov.jpg" class="FOOTER-logo">
+                  <p class="FOOTER-discours">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
+                    Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                  <div class="FOOTER-réseaux">
+                    <div class="col-lg-3 item social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                          class="fab fa-facebook-square"></i></a><a href="#"><i class="fab fa-twitter-square"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="FOOTER-option">
+                <h3>Travaux</h3>
+                <ul class="FOOTER-legend">
+                  <li><a href="#">Recrutement</a></li>
+                  <li><a href="#">Succés d'employés</a></li>
+                </ul>
+              </div>
+  
+              <div class="FOOTER-option">
+                <h3>Adresses</h3>
+                <ul class="FOOTER-legend">
+                  <li><a href="#">QG principal</a></li>
+                  <li><a href="#">Se renseigner</a></li>
+                  <li><a href="#">Numéro</a></li>
+                  <li><a href="#">Mail</a></li>
+                </ul>
+              </div>
+            </div>
+            <p class="FOOTER-copyright">Dark Soluce © 2022</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../js/CréerTopic-script.js"></script>
+</html>

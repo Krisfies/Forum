@@ -5,13 +5,9 @@ type Data_Message struct {
 	Content         string
 	Author          string
 	Date            string
+	Topic_ID        int
 	Message_History []Data_Message
-}
-
-type Topic struct {
-	ID     int64
-	Author string
-	Date   string
+	Topic_Name      string
 }
 
 type Data_User struct {
