@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // MessagesPrint print message.
-func MessagesPrint(ID int) ([]Data_Message, error) {
+func MessagesPrint(ID int64) ([]Data_Message, error) {
 
 	var messages []Data_Message
 

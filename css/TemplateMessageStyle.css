@@ -428,6 +428,29 @@ a
   }
 }
 
+.horse {
+  width: 80px;
+}
+
+.retour {
+  font-size: 30px;
+  display: flex;
+  background-color: #ffffff;
+  width: 200px;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.retour:hover {
+  background-color: aliceblue;
+}
+
+.motretour {
+  margin-top: 7px;
+  margin-left: 5px;
+  color: black;
+}
+
 @media (max-width:1400px) {
   .FOOTER-contact
   {

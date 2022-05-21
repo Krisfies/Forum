@@ -41,7 +41,7 @@ func main() {
 		Admin:    "false",
 	}
 
-	index := template.Must(template.ParseFiles("../html/Registration.html"))
+	Registration := template.Must(template.ParseFiles("../html/Registration.html"))
 	http.HandleFunc("/inscrire", func(w http.ResponseWriter, r *http.Request) {
 		UserInput := r.FormValue("UserInput")
 		UserInput2 := r.FormValue("UserInput2")
@@ -57,10 +57,10 @@ func main() {
 			log.Fatal(err)
 		}
 		fmt.Println(NewUser)
-		index.Execute(w, NewUser)
+		Registration.Execute(w, NewUser)
 	})
 
-	index2 := template.Must(template.ParseFiles("../html/Connection.html"))
+	Connection := template.Must(template.ParseFiles("../html/Connection.html"))
 	http.HandleFunc("/connecter", func(w http.ResponseWriter, r *http.Request) {
 		User := Data_User{
 			Name:     r.FormValue("UserInput"),
@@ -79,18 +79,13 @@ func main() {
 			User_Profil.Name = User.Name
 			http.Redirect(w, r, "/principal", http.StatusSeeOther)
 		}
-		index2.Execute(w, User)
+		Connection.Execute(w, User)
 	})
 
-	index3 := template.Must(template.ParseFiles("../html/MainPage.html"))
+	MainPage := template.Must(template.ParseFiles("../html/MainPage.html"))
 	http.HandleFunc("/principal", func(w http.ResponseWriter, r *http.Request) {
 
-		// Topics := Data_Topic{
-		// 	Name: "Topic1",
-		// }
-		// fmt.Println(Topics)
-
-		index3.Execute(w, nil)
+		MainPage.Execute(w, User_Profil)
 	})
 
 	D1 := template.Must(template.ParseFiles("../html/Souls1.html"))
@@ -103,7 +98,6 @@ func main() {
 
 		Topic := Data_Topic{
 			Topic_History: tab_topic,
-			Name:          "HHEYYYYYYYYYYYYYYBOYIMFROMTEXAS",
 		}
 
 		D1.Execute(w, Topic)
@@ -131,20 +125,22 @@ func main() {
 			Name: r.FormValue("Name"),
 		}
 
-		LeMessage := Data_Message{
-			Content:  r.FormValue("Content"),
-			Author:   User_Profil.Name,
-			Date:     DateMessage(),
-			Topic_ID: LeTopic.ID,
-		}
-
 		if LeTopic.Name != "" {
-			messID, err := AddTopic(LeTopic)
-			fmt.Printf("ID of added topic: %v\n", messID)
+			topID, err := AddTopic(LeTopic)
+			fmt.Printf("ID of added topic: %v\n", topID)
 			if err != nil {
 				fmt.Println(err)
 				return
 			}
+
+			LeMessage := Data_Message{
+				Content:    r.FormValue("Content"),
+				Author:     User_Profil.Name,
+				Date:       DateMessage(),
+				Topic_ID:   topID,
+				Topic_Name: TakeIDReturnName(topID),
+			}
+
 			if LeMessage.Content != "" {
 				messID, err := AddMessage(LeMessage)
 				fmt.Printf("ID of added message: %v\n", messID)
@@ -152,7 +148,7 @@ func main() {
 					fmt.Println(err)
 					return
 				}
-				http.Redirect(w, r, "/topic", http.StatusSeeOther)
+				http.Redirect(w, r, "/D1", http.StatusSeeOther)
 			} else {
 				//Erreur si message vide
 			}
@@ -165,14 +161,16 @@ func main() {
 	})
 
 	TemplateMessage := template.Must(template.ParseFiles("../html/TemplateMessage.html"))
-	http.HandleFunc("/topic", func(w http.ResponseWriter, r *http.Request) {
-		// fmt.Println(r.URL.Query())
+	http.HandleFunc("/topic/", func(w http.ResponseWriter, r *http.Request) {
+
+		LeTopicId := TakeUrlReturnID(r.URL.String())
+
 		message := Data_Message{
 			Content:    r.FormValue("Content"),
 			Author:     User_Profil.Name,
 			Date:       DateMessage(),
-			Topic_ID:   115,
-			Topic_Name: "Prions",
+			Topic_ID:   LeTopicId,
+			Topic_Name: TakeIDReturnName(LeTopicId),
 		}
 
 		tab_messages, err := MessagesPrint(message.Topic_ID)
@@ -197,7 +195,8 @@ func main() {
 				fmt.Println(err)
 				return
 			}
-			http.Redirect(w, r, "/topic", http.StatusSeeOther)
+			url := r.URL.String()
+			http.Redirect(w, r, url, http.StatusSeeOther)
 		}
 
 		TemplateMessage.Execute(w, message)
@@ -205,8 +204,13 @@ func main() {
 
 	css := http.FileServer(http.Dir("../css/"))
 	http.Handle("/css/", http.StripPrefix("/css/", css))
+
 	images := http.FileServer(http.Dir("../images/"))
 	http.Handle("/images/", http.StripPrefix("/images/", images))
+
+	js := http.FileServer(http.Dir("../js/"))
+	http.Handle("/js/", http.StripPrefix("/js/", js))
+
 	http.ListenAndServe(":8010", nil)
 
 }
