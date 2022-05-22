@@ -3,22 +3,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="icon" type="image/png" href="images/logo1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/TopicCreationStyle.css" />
-    <title>Dark Soluce</title>
+    <link rel="stylesheet" href="/css/ProfilStyle.css" />
+    <title>Profil</title>
   </head>
   <body>
     <div class="NAVBAR-header">
-      <img src="/images/DS.png" class="NAVBAR-logo">
+      <img src="/images/DS.png">
       <nav>
         <ul class="NAVBAR-ul">
           <li><a href="#" class="NAVBAR-option">Services</a></li>
-          <li><a href="#" class="NAVBAR-option">Se connecter</a></li>
-          <li><a href="#" class="NAVBAR-option">S'inscrire</a></li>
+          <li><a href="/connecter" class="NAVBAR-option">Se connecter</a></li>
+          <li><a href="/inscrire" class="NAVBAR-option">S'inscrire</a></li>
           <a href="#" class="NAVBAR-option"><img src="/images/engrenage.png" class="NAVBAR-engrenage"></a>
         </ul>
       </nav>
@@ -49,49 +49,24 @@
     <div class="fond">
       <div class="allcontent">
         <div class="allcategories">
-          <div class="category">
-            <form>
-              <h1>Créer un topic</h1>
-              <div class="separation"></div>
-              <div class="corps-formulaire">
-                <div class="gauche">
-                  <div class="groupe">
-                    <label>Titre</label>
-                    <br>
-                    <input type="text" autocomplete="off" class="titretopic" name="Name">
-                  </div>
-                  <br>
-                  <label>Choisissez une catégorie</label>
-                  <br>
-                  <div>
-                    <input type="checkbox" id="Aide" name="Tags" value="Aide">
-                    <label for="Aide">Aide</label>
-                  </div> 
-                  <div>
-                    <input type="checkbox" id="Bug" name="Tags" value="Bug">
-                    <label for="Bug">Bug</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="Boss" name="Tags" value="Boss">
-                    <label for="Boss">Boss</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="Lore" name="Tags" value="Lore">
-                    <label for="Lore">Lore</label>
-                  </div>
-                  <div class="droite">
-                    <div class="groupe">
-                      <br>
-                      <textarea placeholder="Saisissez votre message ici..." class="sujettopic" name="Content"></textarea>
-                    </div>
-                  </div>
-                </div>
-                <br>
-                <div class="pied-formulaire">
-                  <button class="Publier">Publier le Topic</button>
-                </div>
+          <div class="profil">
+            <div class="haut">
+              <img src="/images/pdp.jpg" class="pdp">
+              <div class="info">
+                <h3>{{.Name}}</h3>
+                <ul class="ulinfo">
+                  <li>18 ans</li>
+                  <li>Arrivée sur le forum depuis: 2 jours</li>
+                </ul>
               </div>
-            </form>
+            </div>
+            <div class="bas">
+              <div class="contenubas">
+                <h3>BIO:</h3>
+                <p>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                <div class="ligne"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -139,5 +114,5 @@
       </div>
     </footer>
   </body>
-  <script src="/js/CréerTopic-script.js"></script>
+<script src="/js/profil-script.js"></script>
 </html>

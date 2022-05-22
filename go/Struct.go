@@ -26,9 +26,9 @@ type Data_Topic struct {
 	ID            int64
 	Name          string
 	Topic_History []Data_Topic
-}
-
-type Data_Tags struct {
-	ID   int64
-	Name string
+	Tags          []string
+	IsAide        bool
+	IsBug         bool
+	IsBoss        bool
+	IsLore        bool
 }

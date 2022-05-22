@@ -88,6 +88,12 @@ func main() {
 		MainPage.Execute(w, User_Profil)
 	})
 
+	Profil := template.Must(template.ParseFiles("../html/Profil.html"))
+	http.HandleFunc("/profil", func(w http.ResponseWriter, r *http.Request) {
+
+		Profil.Execute(w, User_Profil)
+	})
+
 	D1 := template.Must(template.ParseFiles("../html/Souls1.html"))
 	http.HandleFunc("/D1", func(w http.ResponseWriter, r *http.Request) {
 
@@ -123,7 +129,9 @@ func main() {
 
 		LeTopic := Data_Topic{
 			Name: r.FormValue("Name"),
+			Tags: r.Form["Tags"],
 		}
+		fmt.Println(LeTopic.Tags)
 
 		if LeTopic.Name != "" {
 			topID, err := AddTopic(LeTopic)
