@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-// AddMessage adds the specified message to the database,
-// returning the message ID of the new entry
 func AddMessage(mess Data_Message) (int64, error) {
+	// Crée un message dans la base de donnée
 	result, err := db.Exec("INSERT INTO data_message (Content, Author, Date, Topic_ID) VALUES (?, ?, ?, ?)", mess.Content, mess.Author, mess.Date, mess.Topic_ID)
+	// Gère les erreur pour envoyer le message
 	if err != nil {
 		return 0, fmt.Errorf("AddMessage: %v", err)
 	}

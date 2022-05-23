@@ -1,7 +1,7 @@
 package main
 
 func (top *Data_Topic) AddTagsToTopic() {
-
+	// Verifie si on veut utiliser un ou plusieurs tags disponible pour un topic
 	if top.IsAide == true {
 		top.Tags = append(top.Tags, "#Aide")
 	}

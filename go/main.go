@@ -217,11 +217,12 @@ func main() {
 		LeTopicId := TakeUrlReturnIDTopic(r.URL.String())
 
 		message := Data_Message{
-			Content:    r.FormValue("Content"),
-			Author:     User_Profil.Name,
+			Content:    "Message :" + r.FormValue("Content"),
+			Author:     r.FormValue("Content"),
 			Date:       DateObject(),
 			Topic_ID:   LeTopicId,
 			Topic_Name: TakeIDReturnName(LeTopicId),
+			Nbr_Like:   0,
 		}
 
 		tab_messages, err := MessagesPrint(message.Topic_ID)
