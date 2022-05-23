@@ -73,17 +73,20 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		fmt.Println(User.Name)
-		fmt.Println(User.Password)
+		fmt.Println("user connecté: ", User.Name)
+		fmt.Println("son mdp: ", User.Password)
 		Verif := Data_Verif{
 			Connect_Verif: VerifUser(User.Name, User.Password),
 		}
 		Verif.Connect_Verif = VerifUser(User.Name, User.Password)
 		if Verif.Connect_Verif {
 			User_Profil = User
+			UserConnection(User_Profil)
+			fmt.Println("Date profil: ", User_Profil.Date)
+			fmt.Println("bio profil: ", User_Profil.Biography)
 			http.Redirect(w, r, "/principal", http.StatusSeeOther)
 		}
-		Connection.Execute(w, User)
+		Connection.Execute(w, User_Profil)
 	})
 
 	MainPage := template.Must(template.ParseFiles("../html/MainPage.html"))
@@ -259,6 +262,6 @@ func main() {
 	js := http.FileServer(http.Dir("../js/"))
 	http.Handle("/js/", http.StripPrefix("/js/", js))
 
-	http.ListenAndServe(":8010", nil)
+	http.ListenAndServe(":8080", nil)
 
 }

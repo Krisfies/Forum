@@ -63,51 +63,11 @@
           <p class="title1"><img src="/images/darksouls2.png" class="darksouls"></p>
           <div class="first">
             <ul class="list">
-              <a href="">
-                <li class="lien">TOPIC</li>
+              {{range .Topic_History}}
+              <a href="/topic/{{.ID}}">
+                <li class="lien">{{.Name}} <span>{{.Tags}}</span></li>
               </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
-              <a href="">
-                <li class="lien">TOPIC</li>
-              </a>
+              {{end}}
             </ul>
           </div>
         </div>
