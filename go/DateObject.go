@@ -5,10 +5,10 @@ import (
 	"time"
 )
 
-func DateMessage() string {
+func DateObject() string {
 	var Date string
-	DateMessage := time.Now()
-	Test := fmt.Sprintln(DateMessage)
+	DateNow := time.Now()
+	Test := fmt.Sprintln(DateNow)
 Loop:
 	for _, letter := range Test {
 		if letter == ' ' {

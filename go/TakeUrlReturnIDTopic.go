@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func TakeUrlReturnID(url string) int64 {
+func TakeUrlReturnIDTopic(url string) int64 {
 	var LeIDstr string
 	var LeIDint int64
 	for _, letter := range url {
@@ -14,6 +14,8 @@ func TakeUrlReturnID(url string) int64 {
 		}
 	}
 	LeIDint, err := strconv.ParseInt(LeIDstr, 10, 64)
-	fmt.Println(err)
+	if err != nil {
+		fmt.Println(err)
+	}
 	return LeIDint
 }
