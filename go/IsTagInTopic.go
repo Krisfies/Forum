@@ -7,13 +7,13 @@ func IsTagInTopic(top Data_Topic) (int, int, int, int) {
 	var Lore int = 0
 
 	for _, tag := range top.Tags {
-		if tag == "Aide" {
+		if tag == "#Aide" {
 			Aide = 1
-		} else if tag == "Bug" {
+		} else if tag == "#Bug" {
 			Bug = 1
-		} else if tag == "Boss" {
+		} else if tag == "#Boss" {
 			Boss = 1
-		} else if tag == "Lore" {
+		} else if tag == "#Lore" {
 			Lore = 1
 		}
 	}
