@@ -15,7 +15,7 @@ func MessagesPrint(ID int64) ([]Data_Message, error) {
 
 	for rows.Next() {
 		var mess Data_Message
-		if err := rows.Scan(&mess.ID, &mess.Content, &mess.Author, &mess.Date, &mess.Topic_ID); err != nil {
+		if err := rows.Scan(&mess.ID, &mess.Content, &mess.Author, &mess.Date, &mess.Topic_ID, &mess.Nbr_Like); err != nil {
 			return nil, fmt.Errorf("MessagesPrint error: %v", err)
 		}
 		messages = append(messages, mess)

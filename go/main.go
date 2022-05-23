@@ -15,7 +15,7 @@ var db *sql.DB
 func main() {
 	cfg := mysql.Config{
 		User:                 "root",
-		Passwd:               "",
+		Passwd:               "password",
 		Net:                  "tcp",
 		Addr:                 "127.0.0.1:3306",
 		DBName:               "data-access",
@@ -147,6 +147,7 @@ func main() {
 				Date:       DateMessage(),
 				Topic_ID:   topID,
 				Topic_Name: TakeIDReturnName(topID),
+				Nbr_Like:   0,
 			}
 
 			if LeMessage.Content != "" {

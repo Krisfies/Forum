@@ -5,7 +5,7 @@ import "fmt"
 // AddMessage adds the specified message to the database,
 // returning the message ID of the new entry
 func AddMessage(mess Data_Message) (int64, error) {
-	result, err := db.Exec("INSERT INTO data_message (Content, Author, Date, Topic_ID) VALUES (?, ?, ?, ?)", mess.Content, mess.Author, mess.Date, mess.Topic_ID)
+	result, err := db.Exec("INSERT INTO data_message (Content, Author, Date, Topic_ID, Nbr_Like) VALUES (?, ?, ?, ?, ?)", mess.Content, mess.Author, mess.Date, mess.Topic_ID, mess.Nbr_Like)
 	fmt.Println(result)
 	if err != nil {
 		return 0, fmt.Errorf("AddMessage: %v", err)
