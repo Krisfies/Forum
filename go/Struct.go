@@ -1,25 +1,21 @@
 package main
 
-type Message struct {
-	ID                 int64
-	Content            string
-	Author             string
-	Date               string
-	Historique_message []Message
-}
-
-type Topic struct {
-	ID     int64
-	Author string
-	Date   string
+type Data_Message struct {
+	ID              int64
+	Content         string
+	Author          string
+	Date            string
+	Topic_ID        int64
+	Message_History []Data_Message
+	Topic_Name      string
 }
 
 type Data_User struct {
-	ID    int64
-	Nom   string
-	email string
-	mdp   string
-	admin string
+	ID       int64
+	Name     string
+	Email    string
+	Password string
+	Admin    string
 }
 
 type Data_Verif struct {
@@ -27,5 +23,12 @@ type Data_Verif struct {
 }
 
 type Data_Topic struct {
-	Nom string
+	ID            int64
+	Name          string
+	Topic_History []Data_Topic
+	Tags          []string
+	IsAide        bool
+	IsBug         bool
+	IsBoss        bool
+	IsLore        bool
 }

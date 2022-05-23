@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body {
-  overflow-x: hidden;
-  background-image: url("../images/fond.jpg");
+  overflow-x:hidden;
+  background-image: url("../images/fond2.jpg");
   background-attachment: fixed;
   object-fit: cover;
 }
 
-ul {
+ul 
+{
   list-style-type: none;
 }
 
@@ -141,9 +143,8 @@ ul {
   }
 }
 
-.fond {}
-
-.allcontent {
+.allcontent
+{
   font-family: 'Mukta', sans-serif;
   color: rgb(218, 218, 218);
   width: 80%;
@@ -153,120 +154,206 @@ ul {
   padding: 60px;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(175, 175, 175, 0.9);
   border-radius: 6px;
 }
 
-.title1 {
-  border: 2px solid rgb(0, 0, 0);
-  border-bottom: 0px;
-  background-image: url("../Principal/img/banniere1.png");
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-  margin: -2.1;
-  padding: 15px;
+.darksouls
+{
+  width: 300px;
 }
 
-.title2 {
-  border: 2px solid rgb(0, 0, 0);
-  border-bottom: 0px;
-  background-image: url("../Principal/img/banniere2.jpg");
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-  margin: -2.1;
-  padding: 15px;
+.horse
+{
+  width: 80px;
 }
 
-.title3 {
-  border: 2px solid rgb(0, 0, 0);
-  border-bottom: 0px;
-  background-image: url("../Principal/img/banniere3.jpg");
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-  margin: -2.1;
-  padding: 15px;
+.titretopic
+{
+  width: 300px;
 }
 
-.title4 {
-  border: 2px solid rgb(0, 0, 0);
-  border-bottom: 0px;
-  background-color: black;
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-  margin: -2.1;
-  padding: 15px;
+.sujettopic
+{
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  height: 30%;
+  width: 670px;
 }
 
-.flamme {
+.Publier
+{
+  padding: 7px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.retour
+{
+  font-size: 30px;
+  display: flex;
+  background-color: #747474;
+  width: 200px;
+  border-radius: 10px;
+  list-style: none;
+  border: solid #000000 2px;
+  font-style: italic;
+}
+
+a 
+{
+  text-decoration:none; 
+}
+
+.retour:hover 
+{
+  background-color: rgb(149, 150, 151);
+}
+
+.motretour
+{
+  margin-top: 7px;
+  margin-left: 5px;
+  color: black;
+}
+
+.flamme 
+{
   margin-left: 4px;
 }
 
-.lien {
+.lien 
+{
   border-bottom: solid 1px;
   margin-bottom: 6px;
   color: #ffffff;
   text-decoration: none;
 }
 
-.first {}
-
-.allcategories {
+.allcategories
+{
   width: 83%;
+  padding-bottom: 40px;
 }
 
-.category {
+.category
+{
   border: 2px solid rgb(0, 0, 0);
   background-color: rgb(58, 58, 58);
   margin-top: 30px;
   border-radius: 4px;
 }
 
-.side {
+form 
+{
+  margin-left: 40px;
+}
+
+.side
+{
   margin-left: 30px;
 }
 
-.list {
+.list 
+{
   text-decoration: none;
 }
 
-.menu {
+.catégories
+{
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+  margin-left: 40px;
+}
+
+.catégorie
+{
+  border: 1px black solid;
+  background-color: #f1f1f1;
+  border-radius: 6px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 40px;
+  color: black;
+}
+
+.catégorie:hover 
+{
+  background-color: rgb(163, 163, 163);
+}
+
+.menu 
+{
   border: 2px solid rgb(0, 0, 0);
   background-color: rgb(58, 58, 58);
-  margin-top: 30px;
+  margin-top: 30px; 
   height: 85%;
   border-radius: 8px;
 }
 
-#searchbar {
-  position: relative;
+#searchbar
+{
+  position:relative; 
   margin-top: 20px;
 }
 
-.formulaire {
-  display: inline-block;
+.formulaire               
+{
+display:block;
+}
+.formulaire .champ       
+{
+width: 250px; 
+height:35px;
+border-radius: 9px;
+border: none;
+padding: 16px;
+}
+.formulaire .bouton       
+{ 
+background-repeat: no-repeat;width: 35px;
+height: 35px;
+padding: 0; 
 }
 
-.formulaire .champ {
-  width: 100%;
-  height: 35px;
-  border-radius: 9px;
-  border: none;
-  padding: 16px;
+.loupe 
+{
+margin-bottom: -7px;
+margin-left: -33px;
+height: 25px;
 }
 
-.formulaire .bouton {
-  background-repeat: no-repeat;
-  width: 35px;
-  height: 35px;
-  padding: 0;
+@media (max-width:1133px) {
+  .sujettopic
+  {
+    width: 470px;
+  }
 }
 
-.loupe {
-  margin-bottom: -7px;
-  margin-left: -33px;
-  height: 25px;
+@media (max-width: 819px) {
+  .sujettopic 
+  {
+    width: 95%;
+  }
 }
 
+@media (max-width:664px) {
+  .titretopic
+  {
+    width: 80%;
+  }
+}
+
+@media (max-width:1400px) {
+  .FOOTER-contact
+{
+  margin-top: 50px;
+}
+}
 
 .FOOTER-clean {
   background-color: black;
@@ -368,6 +455,12 @@ ul {
   margin-top: -80px;
 }
 
+@media (max-width:520px) {
+  .side {
+    margin-left: 7px;
+  }
+}
+
 @media (max-width:692px) {
   .FOOTER-clean .item {
 
@@ -376,6 +469,12 @@ ul {
 
   .FOOTER-localisation {
     margin-top: 50px;
+  }
+}
+
+@media (max-width:740px) {
+  .darksouls {
+    width: 200px;
   }
 }
 
