@@ -11,11 +11,13 @@ type Data_Message struct {
 }
 
 type Data_User struct {
-	ID       int64
-	Name     string
-	Email    string
-	Password string
-	Admin    string
+	ID        int64
+	Name      string
+	Email     string
+	Password  string
+	Admin     string
+	Biography string
+	Date      string
 }
 
 type Data_Verif struct {
@@ -31,4 +33,5 @@ type Data_Topic struct {
 	IsBug         bool
 	IsBoss        bool
 	IsLore        bool
+	CategorieID   int64
 }
