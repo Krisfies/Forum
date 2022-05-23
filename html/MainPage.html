@@ -20,12 +20,7 @@
     <nav>
       <ul class="NAVBAR-ul">
         <li><a href="#" class="NAVBAR-option">Services</a></li>
-        {{if eq .Name "Random"}}
-        <li><a href="/connecter" class="NAVBAR-option">Se connecter</a></li>
-        <li><a href="/inscrire" class="NAVBAR-option">S'inscrire</a></li>
-        {{else}}
         <li><a href="/profil" class="NAVBAR-option">Profil</a></li>
-        {{end}}
         <a href="#" class="NAVBAR-option"><img src="/images/engrenage.png" class="NAVBAR-engrenage"></a>
       </ul>
     </nav>
@@ -59,7 +54,7 @@
         <div class="category">
           <p class="title1">Catégories principales</p>
           <div class="first">
-            <ul class="list">
+            <ul>
               <a href="/D1">
                 <li class="lien">Dark Souls</li>
               </a>
@@ -77,10 +72,15 @@
         <div class="category">
           <p class="title2">Derniers topics</p>
           <div class="second">
-            <ul class="list">
-              <li class="lien">Blablablablablabla</li>
-              <li class="lien">Blablablablablabla</li>
-              <li class="lien">Blablablablablabla</li>
+            <ul>
+              {{range .Topic_History}}
+                <span>Dark Souls {{.CategorieID}}</span>
+                <a href="/topic/{{.ID}}">
+                  <li class="lien">{{.Name}}
+                    <span>{{.Tags}}</span>
+                  </li>
+                </a>
+              {{end}}
             </ul>
           </div>
         </div>
@@ -88,7 +88,7 @@
         <div class="category">
           <p class="title3">Autres</p>
           <div class="third">
-            <ul class="list">
+            <ul>
               <li class="lien">Blablablablablabla</li>
               <li class="lien">Blablablablablabla</li>
               <li class="lien">Blablablablablabla</li>

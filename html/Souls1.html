@@ -65,7 +65,9 @@
             <ul class="list">
               {{range .Topic_History}}
               <a href="/topic/{{.ID}}">
-                <li class="lien">{{.Name}} <span>{{.Tags}}</span></li>
+                <li class="lien">{{.Name}}
+                  <span>{{.Tags}}</span>
+                </li>
               </a>
               {{end}}
             </ul>
